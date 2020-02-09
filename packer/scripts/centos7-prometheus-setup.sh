@@ -6,11 +6,12 @@ Services=(
   pushgateway
 )
 
+
 # Install services
-sudo yum install -y ${Services[@]}
+sudo yum install -y "${Services[@]}"
 
 # Start Services
-sudo systemctl start ${Services[@]}
+sudo systemctl start "${Services[@]}"
 
 # Enable Services
-sudo systemctl enable ${Services[@]}
+sudo systemctl enable "${Services[@]}"
