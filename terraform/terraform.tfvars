@@ -3,6 +3,8 @@
 #--------------------------------------------------------------
 environment       = "Dev"
 region            = "us-east-1"
+ssl-cert-arn      = "arn:aws:acm:us-east-1:247624464681:certificate/44f1e962-d46c-4e49-ada5-3fab83385652"
+domain            = "0.double0.net"
 
 #--------------------------------------------------------------
 # Network

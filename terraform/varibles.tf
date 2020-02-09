@@ -11,6 +11,14 @@ variable "region" {
     default = "us-east-1"
 }
 
+variable "ssl-cert-arn" {
+    type = string
+}
+
+variable "domain" {
+    type = string
+}
+
 #--------------------------------------------------------------
 # Network
 #--------------------------------------------------------------

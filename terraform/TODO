@@ -1,0 +1,5 @@
+TODO 
+- Add all outbound to VPC SG Egress
+- Fix Target Attachment to ALB 
+- Add 302 to Target Groups 
+- Fix ALB Rules 
