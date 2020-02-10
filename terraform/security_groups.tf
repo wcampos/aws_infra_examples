@@ -18,13 +18,22 @@ module "sg_vpc_internal" {
       protocol    = "tcp"
       description = "ALLOW ALL INT TRAFFIC INSIDE VPC"
       cidr_blocks = module.vpc.vpc_cidr_block
-    },
+    }
   ]
 
   # Egress 
 
   egress_cidr_blocks = ["0.0.0.0/0"]
   egress_rules       = ["https-443-tcp", "http-80-tcp"]
+  egress_with_cidr_blocks = [
+    {
+      from_port   = 0
+      to_port     = 65535
+      protocol    = "tcp"
+      description = "ALLOW ALL TRAFFIC TO OUT VPC"
+      cidr_blocks = "0.0.0.0/0"
+    }
+  ]  
 }
 
 ## PUBLIC INGRESS 

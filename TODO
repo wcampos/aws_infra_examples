@@ -1,0 +1,8 @@
+TODO
+
+- Fix jenkins ami import rpm key
+- Deploy jenkins
+- setup consul install
+- deploy consul 
+- configure SSM custom playbooks 
+- configure machines to use consul 
