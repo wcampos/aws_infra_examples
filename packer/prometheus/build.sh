@@ -1,4 +1,4 @@
-# Grafana builder 
+# Prometheus builder 
 
 SCRIPTS=(
     base-setup.sh
@@ -7,6 +7,8 @@ SCRIPTS=(
     centos7-prometheus-repo.sh 
     centos7-prometheus-setup.sh
     centos7-node_exporter-setup.sh
+    consul-client-setup.sh
+    consul-client-prometheus.sh
 )
 
 for SCR in "${SCRIPTS[@]}"; do 

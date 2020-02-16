@@ -7,6 +7,7 @@ packages=(
     iftop
     htop
     wget
+    unzip
 )
 
 sudo yum -y install "${packages[@]}"

@@ -7,10 +7,10 @@
       "source_ami": "ami-02eac2c0129f6376b",
       "instance_type": "t2.micro",
       "ssh_username": "centos",
-      "ami_name": "GrafanaServer-{{isotime \"02-Jan-06 15_04_05\"}}",
-      "ami_description": "Grafana_AMI",
+      "ami_name": "ConsulServer-{{isotime \"02-Jan-06 15_04_05\"}}",
+      "ami_description": "Consul_AMI",
       "tags": {
-        "Name": "Grafana-{{isotime \"02-Jan-06 15_04_05\"}}",
+        "Name": "Consul-{{isotime \"02-Jan-06 15_04_05\"}}",
         "OS_Version": "CentOS7",
         "Release": "{{isotime \"02-Jan-06 15_04_05\"}}"
       }
@@ -19,12 +19,12 @@
   "provisioners": [
     {
       "type": "file",
-      "source": "./grafana-build-bootstrap.sh",
-      "destination": "/tmp/grafana-build-bootstrap.sh"    
+      "source": "./consul-build-bootstrap.sh",
+      "destination": "/tmp/consul-build-bootstrap.sh"    
     },
     {
       "type": "shell",
-      "inline": "bash -xe /tmp/grafana-build-bootstrap.sh"
+      "inline": "bash -xe /tmp/consul-build-bootstrap.sh"
     }
   ]
 }

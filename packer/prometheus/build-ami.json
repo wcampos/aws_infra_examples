@@ -25,10 +25,6 @@
     {
       "type": "shell",
       "inline": "bash -xe /tmp/prometheus-build-bootstrap.sh"
-    },
-    {
-      "type": "shell",
-      "inline": "sudo hostnamectl set-hostname prometheus --static"
     }
   ]
 }

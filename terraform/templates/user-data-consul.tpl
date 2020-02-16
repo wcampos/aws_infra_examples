@@ -7,7 +7,8 @@ sudo hostnamectl --static set-hostame "${INSTANCE_HOSTNAME}"
 sudo echo "${INSTANCE_HOSTNAME}" > /etc/hostname
 sudo systemctl restart systemd-hostnamed
 sudo echo 'preserve_hostname: true' >> /etc/cloud/cloud.cfg 
-#Consul-Client
-sudo sed -i "s/HOSTNAME/$(${INSTANCE_HOSTNAME} | cut -f1 -d'.')/g" /etc/systemd/system/consul.service   
-sudo sed -i "s/HOSTNAME/$(${INSTANCE_HOSTNAME} | cut -f1 -d'.')/g" /etc/consul.d/client/config.json
-reboot
+sudo sed -i "s/IPADDR/$(dig +short ${INSTANCE_HOSTNAME})/g" /etc/consul.d/config.json
+systemctl daemon-reload
+sudo echo "script completed" > /root/status.txt
+sudo echo "$(dig +short ${INSTANCE_HOSTNAME})" >> /root/status.txt 
+sudo reboot

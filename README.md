@@ -8,6 +8,7 @@ Catalog
 - Grafana-Server (amzn2)
 - Grafana-Server (centos7)
 - Prometheus-Server (centos7)
-- Jenkins-Server(centos7) - InProcess
-- Consul-Cluster(centos7) - Next
-- Vault-Cluster(centos7) - Backlog
+- Jenkins-Server(centos7)
+- Consul-Cluster(centos7)
+- Vault-Cluster(centos7) - NEXT
+- EKS (amzn2) - Backlog

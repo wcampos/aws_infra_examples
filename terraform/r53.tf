@@ -37,3 +37,12 @@ resource "aws_route53_record" "jenkins" {
   ttl     = "300"
   records = [aws_lb.dashboards.dns_name]
 }
+
+#Consul
+resource "aws_route53_record" "consul" {
+  zone_id = data.aws_route53_zone.domain.zone_id
+  name    = "consul"
+  type    = "CNAME"
+  ttl     = "300"
+  records = [aws_lb.dashboards.dns_name]
+}
