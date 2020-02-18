@@ -44,11 +44,8 @@ cat <<EOF2 | sudo tee /etc/consul.d/client/node_exporter.json
 }
 EOF2
 
-sudo cat <<SERVER >> /etc/prometheus/prometheus.yml
-# A scrape configuration containing exactly one endpoint to scrape:
-# Here it's Prometheus itself.
+cat <<EOF3 | sudo tee -a /etc/prometheus/prometheus.yml
 scrape_configs:
-  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
   - job_name: 'consul'
     consul_sd_configs:
       - server: 'localhost:8500'
@@ -58,6 +55,6 @@ scrape_configs:
         action: keep
       - source_labels: [__meta_consul_service]
         target_label: job
-SERVER
+EOF3
 
 sudo systemctl restart prometheus

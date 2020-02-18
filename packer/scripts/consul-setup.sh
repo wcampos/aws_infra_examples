@@ -36,7 +36,7 @@ Wants=network-online.target
 Type=simple
 User=consul
 Group=consul
-ExecStart=/usr/bin/consul agent -node=consul -config-dir=/etc/consul.d
+ExecStart=/usr/bin/consul agent -node=INSTANCE_HOSTNAME -config-dir=/etc/consul.d
 
 ExecReload=/bin/kill -HUP
 KillSignal=SIGINT
@@ -52,7 +52,7 @@ cat <<EOF2 | sudo tee /etc/consul.d/config.json
 {
      "advertise_addr": "IPADDR",
      "bind_addr": "IPADDR",
-     "bootstrap_expect": 1,
+     "bootstrap_expect": 3,
      "client_addr": "0.0.0.0",
      "datacenter": "D0-AWS1",
      "data_dir": "/var/lib/consul",
@@ -68,20 +68,19 @@ cat <<EOF2 | sudo tee /etc/consul.d/config.json
      "log_level": "INFO",
      "rejoin_after_leave": true,
      "retry_join": [
-         "consul"
+         "consul-0",
+         "consul-1",
+         "consul-2"
      ],
      "server": true,
      "start_join": [
-         "consul"
+         "consul-0",
+         "consul-1",
+         "consul-2"
      ],
      "ui": true
 }
 EOF2
-
-# Open Firewall
-#sudo firewall-cmd  --add-port={8300,8301,8302,8400,8500,8600}/tcp --permanent
-#sudo firewall-cmd  --add-port={8301,8302,8600}/udp --permanent
-#sudo firewall-cmd --reload
 
 # Start and Enable Service 
 sudo systemctl start consul

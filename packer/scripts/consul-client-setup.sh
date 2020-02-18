@@ -59,10 +59,14 @@ cat <<EOF2 | sudo tee /etc/consul.d/client/config.json
     "leave_on_terminate": true,
     "rejoin_after_leave": true,
     "retry_join": [
-        "consul"
+         "consul-0",
+         "consul-1",
+         "consul-2"
     ],
     "start_join": [
-        "consul"
+         "consul-0",
+         "consul-1",
+         "consul-2"
     ]
 }
 EOF2
